@@ -183,52 +183,216 @@
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">核心产品</h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">智能硬件+云端平台，为医疗机构提供一站式数字化健康管理解决方案</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Product 1 -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary-200 transition-all group">
-          <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-5 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      
+      <!-- 产品分类导航 -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="px-6 py-2 bg-primary-600 text-white rounded-full font-medium" onclick="filterProducts('all')">全部产品</button>
+        <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200" onclick="filterProducts('terminal')">健康一体机</button>
+        <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200" onclick="filterProducts('follow')">智慧随访</button>
+      </div>
+      
+      <!-- 产品网格 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
+        <!-- T320 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-200 transition-all group" data-category="terminal">
+          <div class="h-56 bg-gradient-to-br from-primary-100 via-primary-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-primary-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-primary-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-primary-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-primary-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">智能健康一体机</h3>
-          <p class="text-gray-600 mb-4">一机多检：血压、血糖、血氧、心电、体脂等10+项指标一次完成，数据实时上传云端</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">一机多检</span>
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">数据互联</span>
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">操作简便</span>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 T320</h3>
+            <p class="text-sm text-gray-600 mb-3">自助健康一体机，集成心电图、血压血糖等多项基础检测功能</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">一机多检</span>
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">操作简便</span>
+            </div>
           </div>
         </div>
-        <!-- Product 2 -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary-200 transition-all group">
-          <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-5 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        
+        <!-- T200 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-200 transition-all group" data-category="terminal">
+          <div class="h-56 bg-gradient-to-br from-blue-100 via-blue-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-blue-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-blue-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-blue-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-blue-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">区域心电诊断平台</h3>
-          <p class="text-gray-600 mb-4">基层采集、上级诊断，打通双向转诊绿色通道，AI辅助智能预警异常心律</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">远程诊断</span>
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">AI辅助</span>
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">全域覆盖</span>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 T200</h3>
+            <p class="text-sm text-gray-600 mb-3">自助健康一体机，适用于健康小屋、岗前筛查、健康康养场景</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">健康小屋</span>
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">岗前筛查</span>
+            </div>
           </div>
         </div>
-        <!-- Product 3 -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary-200 transition-all group">
-          <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-5 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        
+        <!-- T600 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-200 transition-all group" data-category="terminal">
+          <div class="h-56 bg-gradient-to-br from-cyan-100 via-cyan-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-cyan-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-cyan-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-cyan-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-cyan-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">慢病管理云平台</h3>
-          <p class="text-gray-600 mb-4">高血压、糖尿病等慢病从筛查到随访闭环管理，智能提醒用药复诊</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">全程管理</span>
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">智能提醒</span>
-            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">数据看板</span>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 T600</h3>
+            <p class="text-sm text-gray-600 mb-3">自助健康一体机，专为医院门诊场景设计</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">医院门诊</span>
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">自助检测</span>
+            </div>
           </div>
         </div>
+        
+        <!-- T620 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-200 transition-all group" data-category="terminal">
+          <div class="h-56 bg-gradient-to-br from-teal-100 via-teal-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-teal-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-teal-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-teal-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-teal-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 T620</h3>
+            <p class="text-sm text-gray-600 mb-3">健康一体机，专为妇幼门诊场景定制</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">妇幼门诊</span>
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">专业定制</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- T650 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-200 transition-all group" data-category="terminal">
+          <div class="h-56 bg-gradient-to-br from-indigo-100 via-indigo-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-indigo-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-indigo-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-indigo-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-indigo-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 T650</h3>
+            <p class="text-sm text-gray-600 mb-3">自助健康一体机，医院门诊高效检测设备</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">医院门诊</span>
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">高效检测</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- T680 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary-200 transition-all group" data-category="terminal">
+          <div class="h-56 bg-gradient-to-br from-violet-100 via-violet-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-violet-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-violet-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-violet-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-violet-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 T680</h3>
+            <p class="text-sm text-gray-600 mb-3">健康一体机，妇幼门诊专业解决方案</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">妇幼门诊</span>
+              <span class="px-2 py-1 bg-primary-50 text-primary-600 text-xs rounded">高端设备</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- M系列 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-emerald-200 transition-all group" data-category="follow">
+          <div class="h-56 bg-gradient-to-br from-emerald-100 via-emerald-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-emerald-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-emerald-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-emerald-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-emerald-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 M系列</h3>
+            <p class="text-sm text-gray-600 mb-3">智慧随访包，便携式健康检测设备，适合上门随访</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-emerald-50 text-emerald-600 text-xs rounded">智慧随访</span>
+              <span class="px-2 py-1 bg-emerald-50 text-emerald-600 text-xs rounded">便携设计</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- QC100 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-emerald-200 transition-all group" data-category="follow">
+          <div class="h-56 bg-gradient-to-br from-green-100 via-green-50 to-white flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+              <svg class="w-full h-full" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-green-300"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-green-300"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-green-300"/>
+              </svg>
+            </div>
+            <svg class="w-32 h-32 text-green-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">当康 QC100</h3>
+            <p class="text-sm text-gray-600 mb-3">智慧随访终端，移动健康管理专家</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-1 bg-emerald-50 text-emerald-600 text-xs rounded">智慧随访</span>
+              <span class="px-2 py-1 bg-emerald-50 text-emerald-600 text-xs rounded">移动健康</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-10">
+        <a href="products/" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+          查看全部产品
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -240,59 +404,53 @@
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">解决方案</h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">为不同场景量身定制，助力分级诊疗落地</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Solution 1 -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
-          <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-            <svg class="w-20 h-20 text-primary-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-primary-100 via-primary-50 to-white flex items-center justify-center relative overflow-hidden">
+            <svg class="w-24 h-24 text-primary-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
             </svg>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">基层医疗机构数字化升级方案</h3>
-            <p class="text-gray-600">部署健康一体机+慢病管理系统，实现检测数据自动采集、健康档案云端管理</p>
-            <a href="solutions/" class="mt-4 text-primary-600 font-medium flex items-center group-hover:text-primary-700 inline-flex">
-              了解更多
-              <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">基层医疗机构数字化升级</h3>
+            <p class="text-sm text-gray-600">部署健康一体机+慢病管理系统，实现检测数据自动采集、健康档案云端管理</p>
           </div>
         </div>
         <!-- Solution 2 -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
-          <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-            <svg class="w-20 h-20 text-primary-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-blue-100 via-blue-50 to-white flex items-center justify-center relative overflow-hidden">
+            <svg class="w-24 h-24 text-blue-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">区域卫生健康信息平台方案</h3>
-            <p class="text-gray-600">搭建区域心电诊断平台，连接基层采集端与上级诊断中心，实现跨机构数据共享</p>
-            <a href="solutions/" class="mt-4 text-primary-600 font-medium flex items-center group-hover:text-primary-700 inline-flex">
-              了解更多
-              <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">区域卫生健康信息平台</h3>
+            <p class="text-sm text-gray-600">搭建区域心电诊断平台，连接基层采集端与上级诊断中心</p>
           </div>
         </div>
         <!-- Solution 3 -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all group">
-          <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-            <svg class="w-20 h-20 text-primary-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-emerald-100 via-emerald-50 to-white flex items-center justify-center relative overflow-hidden">
+            <svg class="w-24 h-24 text-emerald-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
             </svg>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">社区智慧养老健康服务方案</h3>
-            <p class="text-gray-600">在社区/养老机构部署健康检测设备，构建"机构-社区-家庭"三级健康守护网</p>
-            <a href="solutions/" class="mt-4 text-primary-600 font-medium flex items-center group-hover:text-primary-700 inline-flex">
-              了解更多
-              <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">社区智慧养老健康服务</h3>
+            <p class="text-sm text-gray-600">在社区/养老机构部署健康检测设备，构建三级健康守护网</p>
+          </div>
+        </div>
+        <!-- Solution 4 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-violet-100 via-violet-50 to-white flex items-center justify-center relative overflow-hidden">
+            <svg class="w-24 h-24 text-violet-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">智慧公卫体检系统</h3>
+            <p class="text-sm text-gray-600">公卫体检一体化解决方案，数据自动上传，报告即时生成</p>
           </div>
         </div>
       </div>
@@ -355,6 +513,34 @@
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
     });
+    
+    // Product filter
+    function filterProducts(category) {
+      const products = document.querySelectorAll('#products-grid > div');
+      const buttons = document.querySelectorAll('#products-grid').parentElement.querySelectorAll('button');
+      
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-primary-600', 'text-white');
+        btn.classList.add('bg-gray-100', 'text-gray-700');
+      });
+      event.target.classList.remove('bg-gray-100', 'text-gray-700');
+      event.target.classList.add('bg-primary-600', 'text-white');
+      
+      products.forEach(product => {
+        if (category === 'all' || product.dataset.category === category) {
+          product.style.display = 'block';
+          product.style.animation = 'fadeIn 0.3s ease';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
   </script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </body>
 </html>
