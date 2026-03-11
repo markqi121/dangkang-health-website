@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高血压随访表 - Page-Agent 智能填写</title>
+    <!-- 引入 Page-Agent -->
+    <script src="https://cdn.jsdelivr.net/npm/page-agent@latest/dist/umd/page-agent.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 20px;
+        }
+        
+        /* AI 控制面板 */
+        .ai-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            padding: 20px;
+            color: white;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+        
+        .ai-panel h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .ai-status {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        
+        .ai-status.ready { border-left: 3px solid #4ade80; }
+        .ai-status.error { border-left: 3px solid #f87171; }
+        
+        .ai-input-box {
+            margin-bottom: 15px;
+        }
+        
+        .ai-input-box textarea {
+            width: 100%;
+            height: 80px;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            resize: none;
+        }
+        
+        .ai-btn {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+        }
+        
+        .ai-btn:hover { transform: scale(1.02); }
+        .ai-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .quick-cmds {
+            margin-top: 15px;
+        }
+        
+        .quick-cmds h4 {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .cmd-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .cmd-item {
+            background: rgba(255,255,255,0.15);
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .cmd-item:hover { background: rgba(255,255,255,0.25); }
+        
+        .ai-log {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .ai-log h4 {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+        
+        .log-item {
+            background: rgba(0,0,0,0.2);
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-bottom: 5px;
+            word-break: break-all;
+        }
+        
+        /* 表单区域 */
+        .form-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .form-header h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin: 25px 0 15px;
+            padding-left: 10px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        /* 生命体征卡片 */
+        .vital-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .vital-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .vital-card .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .vital-card .label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .vital-card .status {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 10px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        
+        .status.normal { background: #d4edda; color: #155724; }
+        .status.warning { background: #fff3cd; color: #856404; }
+        .status.danger { background: #f8d7da; color: #721c24; }
+        
+        /* 提交按钮 */
+        .submit-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .ai-panel {
+                position: static;
+            }
+            .vital-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- AI 控制面板 -->
+        <div class="ai-panel">
+            <h2>🤖 Page-Agent 智能助手</h2>
+            
+            <div class="ai-status ready" id="ai-status">
+                ✓ Page-Agent 已加载，等待指令
+            </div>
+            
+            <div class="ai-input-box">
+                <textarea id="ai-command" placeholder="输入自然语言指令，例如：&#10;• 帮我填写张三的随访记录&#10;• 填入血压145/95，心率78&#10;• 自动检查表单完整性"></textarea>
+            </div>
+            
+            <button class="ai-btn" id="ai-execute-btn" onclick="executeAI()">
+                🚀 执行 AI 指令
+            </button>
+            
+            <button class="ai-btn" onclick="initPageAgent()" style="background:rgba(255,255,255,0.2);color:white;">
+                ⚙️ 配置 API Key
+            </button>
+            
+            <div class="quick-cmds">
+                <h4>快捷指令</h4>
+                <div class="cmd-list">
+                    <div class="cmd-item" onclick="runCmd('填写张三的随访记录，血压145/95，心率78')">
+                        📝 填写示例数据
+                    </div>
+                    <div class="cmd-item" onclick="runCmd('自动计算患者的BMI')">
+                        🧮 计算BMI
+                    </div>
+                    <div class="cmd-item" onclick="runCmd('检查血压是否正常')">
+                        ⚠️ 检查血压异常
+                    </div>
+                    <div class="cmd-item" onclick="runCmd('填写用药情况：氨氯地平5mg每日一次')">
+                        💊 填写用药
+                    </div>
+                    <div class="cmd-item" onclick="runCmd('清空所有表单内容')">
+                        🗑️ 清空表单
+                    </div>
+                    <div class="cmd-item" onclick="runCmd('提交这份随访记录')">
+                        ✅ 提交表单
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-log">
+                <h4>执行日志</h4>
+                <div id="log-container"></div>
+            </div>
+        </div>
+        
+        <!-- 随访表单 -->
+        <div class="form-panel">
+            <div class="form-header">
+                <h1>📋 高血压患者随访记录表</h1>
+                <p>国家基本公共卫生服务项目</p>
+            </div>
+            
+            <!-- 患者基本信息 -->
+            <div class="section-title">一、患者基本信息</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" id="name" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <label>性别</label>
+                    <select id="gender">
+                        <option value="">请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>年龄</label>
+                    <input type="number" id="age" placeholder="岁">
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" id="phone" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <label>身份证号</label>
+                    <input type="text" id="idcard" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <label>随访日期</label>
+                    <input type="date" id="date">
+                </div>
+            </div>
+            
+            <!-- 生命体征 -->
+            <div class="section-title">二、生命体征</div>
+            <div class="vital-cards">
+                <div class="vital-card">
+                    <div class="value" id="bp-value">--/--</div>
+                    <div class="label">血压 (mmHg)</div>
+                    <div class="status" id="bp-status">待测量</div>
+                </div>
+                <div class="vital-card">
+                    <div class="value" id="hr-value">--</div>
+                    <div class="label">心率 (次/分)</div>
+                    <div class="status" id="hr-status">待测量</div>
+                </div>
+                <div class="vital-card">
+                    <div class="value" id="weight-value">--</div>
+                    <div class="label">体重 (kg)</div>
+                </div>
+                <div class="vital-card">
+                    <div class="value" id="bmi-value">--</div>
+                    <div class="label">BMI</div>
+                    <div class="status" id="bmi-status">待计算</div>
+                </div>
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>收缩压 (mmHg)</label>
+                    <input type="number" id="systolic" placeholder="如：145" onchange="updateVitals()">
+                </div>
+                <div class="form-group">
+                    <label>舒张压 (mmHg)</label>
+                    <input type="number" id="diastolic" placeholder="如：95" onchange="updateVitals()">
+                </div>
+                <div class="form-group">
+                    <label>心率 (次/分)</label>
+                    <input type="number" id="heartrate" placeholder="如：78" onchange="updateVitals()">
+                </div>
+                <div class="form-group">
+                    <label>体重 (kg)</label>
+                    <input type="number" id="weight" placeholder="如：70" onchange="updateVitals()">
+                </div>
+                <div class="form-group">
+                    <label>身高 (cm)</label>
+                    <input type="number" id="height" placeholder="如：175" onchange="updateVitals()">
+                </div>
+                <div class="form-group">
+                    <label>腰围 (cm)</label>
+                    <input type="number" id="waist" placeholder="如：85">
+                </div>
+            </div>
+            
+            <!-- 症状 -->
+            <div class="section-title">三、症状</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>头痛</label>
+                    <select id="symptom-headache">
+                        <option value="">请选择</option>
+                        <option value="无">无</option>
+                        <option value="偶有">偶有</option>
+                        <option value="经常">经常</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>头晕</label>
+                    <select id="symptom-dizzy">
+                        <option value="">请选择</option>
+                        <option value="无">无</option>
+                        <option value="偶有">偶有</option>
+                        <option value="经常">经常</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>心悸</label>
+                    <select id="symptom-palpitation">
+                        <option value="">请选择</option>
+                        <option value="无">无</option>
+                        <option value="偶有">偶有</option>
+                        <option value="经常">经常</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>胸闷</label>
+                    <select id="symptom-chest">
+                        <option value="">请选择</option>
+                        <option value="无">无</option>
+                        <option value="偶有">偶有</option>
+                        <option value="经常">经常</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- 用药情况 -->
+            <div class="section-title">四、用药情况</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>是否规律服药</label>
+                    <select id="med-regular">
+                        <option value="">请选择</option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                        <option value="偶尔">偶尔</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>药物不良反应</label>
+                    <select id="med-reaction">
+                        <option value="">请选择</option>
+                        <option value="无">无</option>
+                        <option value="有">有</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>目前用药</label>
+                <textarea id="med-current" rows="3" placeholder="请输入药物名称、剂量、用法"></textarea>
+            </div>
+            
+            <!-- 生活方式 -->
+            <div class="section-title">五、生活方式指导</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>日摄盐量</label>
+                    <select id="lifestyle-salt">
+                        <option value="">请选择</option>
+                        <option value="清淡">清淡(&lt;6g/天)</option>
+                        <option value="适中">适中(6-10g/天)</option>
+                        <option value="偏咸">偏咸(&gt;10g/天)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>运动频率</label>
+                    <select id="lifestyle-exercise">
+                        <option value="">请选择</option>
+                        <option value="每天">每天</option>
+                        <option value="每周3-5次">每周3-5次</option>
+                        <option value="偶尔">偶尔</option>
+                        <option value="很少">很少</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>吸烟</label>
+                    <select id="lifestyle-smoke">
+                        <option value="">请选择</option>
+                        <option value="从不">从不</option>
+                        <option value="已戒">已戒</option>
+                        <option value="吸烟">吸烟</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>饮酒</label>
+                    <select id="lifestyle-drink">
+                        <option value="">请选择</option>
+                        <option value="从不">从不</option>
+                        <option value="已戒">已戒</option>
+                        <option value="偶尔">偶尔</option>
+                        <option value="经常">经常</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- 随访评估 -->
+            <div class="section-title">六、随访评估</div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>血压控制情况</label>
+                    <select id="control-bp">
+                        <option value="">请选择</option>
+                        <option value="达标">达标</option>
+                        <option value="未达标">未达标</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>下次随访日期</label>
+                    <input type="date" id="next-date">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>随访备注</label>
+                <textarea id="notes" rows="3" placeholder="请输入其他需要记录的内容"></textarea>
+            </div>
+            
+            <!-- 提交 -->
+            <div class="submit-section">
+                <button class="btn btn-primary" onclick="submitForm()">提交随访记录</button>
+                <button class="btn btn-secondary" onclick="resetForm()">重置</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 设置今天日期
+        document.getElementById('date').valueAsDate = new Date();
+        
+        // Page Agent 实例
+        let pageAgent = null;
+        
+        // 初始化 Page Agent
+        function initPageAgent() {
+            const apiKey = prompt('请输入你的 API Key（如通义千问）：');
+            if (!apiKey) return;
+            
+            try {
+                pageAgent = new PageAgent({
+                    model: 'qwen-max',
+                    baseURL: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+                    apiKey: apiKey
+                });
+                
+                document.getElementById('ai-status').className = 'ai-status ready';
+                document.getElementById('ai-status').textContent = '✓ Page-Agent 已配置，可以开始使用';
+                addLog('Page-Agent 初始化成功');
+            } catch (e) {
+                document.getElementById('ai-status').className = 'ai-status error';
+                document.getElementById('ai-status').textContent = '✗ 初始化失败: ' + e.message;
+            }
+        }
+        
+        // 执行 AI 指令
+        async function executeAI() {
+            const cmd = document.getElementById('ai-command').value.trim();
+            if (!cmd) {
+                alert('请输入指令');
+                return;
+            }
+            
+            addLog('执行: ' + cmd);
+            
+            // 如果已配置 Page-Agent，使用真实 AI
+            if (pageAgent) {
+                try {
+                    document.getElementById('ai-execute-btn').disabled = true;
+                    document.getElementById('ai-execute-btn').textContent = '⏳ 执行中...';
+                    
+                    const result = await pageAgent.execute(cmd);
+                    addLog('结果: ' + result);
+                } catch (e) {
+                    addLog('错误: ' + e.message);
+                } finally {
+                    document.getElementById('ai-execute-btn').disabled = false;
+                    document.getElementById('ai-execute-btn').textContent = '🚀 执行 AI 指令';
+                }
+            } else {
+                // 模拟执行
+                simulateAI(cmd);
+            }
+        }
+        
+        // 模拟 AI 执行（无 API Key 时）
+        function simulateAI(cmd) {
+            addLog('模拟模式: 解析指令...');
+            
+            // 解析姓名
+            const nameMatch = cmd.match(/张三|李四|王五/);
+            if (nameMatch) {
+                document.getElementById('name').value = nameMatch[0];
+                addLog('→ 填写姓名: ' + nameMatch[0]);
+            }
+            
+            // 解析血压
+            const bpMatch = cmd.match(/血压\s*(\d+)[\/\s](\d+)/);
+            if (bpMatch) {
+                document.getElementById('systolic').value = bpMatch[1];
+                document.getElementById('diastolic').value = bpMatch[2];
+                addLog('→ 填写血压: ' + bpMatch[1] + '/' + bpMatch[2]);
+                updateVitals();
+            }
+            
+            // 解析心率
+            const hrMatch = cmd.match(/心率\s*(\d+)/);
+            if (hrMatch) {
+                document.getElementById('heartrate').value = hrMatch[1];
+                addLog('→ 填写心率: ' + hrMatch[1]);
+                updateVitals();
+            }
+            
+            // 计算BMI
+            if (cmd.includes('BMI') || cmd.includes('计算')) {
+                calculateBMI();
+                addLog('→ 计算BMI');
+            }
+            
+            // 检查血压
+            if (cmd.includes('检查') || cmd.includes('异常')) {
+                checkBP();
+                addLog('→ 检查血压异常');
+            }
+            
+            // 填写用药
+            if (cmd.includes('用药') || cmd.includes('药')) {
+                const medMatch = cmd.match(/用药[情况]*[：:]?\s*(.+)/);
+                if (medMatch) {
+                    document.getElementById('med-current').value = medMatch[1];
+                    document.getElementById('med-regular').value = '是';
+                    addLog('→ 填写用药: ' + medMatch[1]);
+                }
+            }
+            
+            // 清空表单
+            if (cmd.includes('清空') || cmd.includes('重置')) {
+                resetForm();
+                addLog('→ 清空表单');
+            }
+            
+            // 提交表单
+            if (cmd.includes('提交')) {
+                submitForm();
+                addLog('→ 提交表单');
+            }
+            
+            // 填写示例数据
+            if (cmd.includes('示例') || cmd.includes('张三的随访')) {
+                fillDemoData();
+                addLog('→ 填写示例数据完成');
+            }
+            
+            addLog('✓ 执行完成');
+        }
+        
+        // 快捷指令
+        function runCmd(cmd) {
+            document.getElementById('ai-command').value = cmd;
+            executeAI();
+        }
+        
+        // 填写示例数据
+        function fillDemoData() {
+            document.getElementById('name').value = '张三';
+            document.getElementById('gender').value = '男';
+            document.getElementById('age').value = '58';
+            document.getElementById('phone').value = '13800138000';
+            document.getElementById('idcard').value = '310101196501011234';
+            document.getElementById('systolic').value = '145';
+            document.getElementById('diastolic').value = '95';
+            document.getElementById('heartrate').value = '78';
+            document.getElementById('weight').value = '75';
+            document.getElementById('height').value = '172';
+            document.getElementById('waist').value = '88';
+            document.getElementById('symptom-headache').value = '偶有';
+            document.getElementById('symptom-dizzy').value = '无';
+            document.getElementById('med-regular').value = '是';
+            document.getElementById('med-reaction').value = '无';
+            document.getElementById('med-current').value = '氨氯地平 5mg qd\n缬沙坦 80mg qd';
+            document.getElementById('lifestyle-salt').value = '适中';
+            document.getElementById('lifestyle-exercise').value = '每周3-5次';
+            document.getElementById('lifestyle-smoke').value = '已戒';
+            document.getElementById('lifestyle-drink').value = '偶尔';
+            document.getElementById('control-bp').value = '未达标';
+            updateVitals();
+        }
+        
+        // 更新生命体征显示
+        function updateVitals() {
+            // 血压
+            const sys = document.getElementById('systolic').value;
+            const dia = document.getElementById('diastolic').value;
+            if (sys && dia) {
+                document.getElementById('bp-value').textContent = sys + '/' + dia;
+                const bpStatus = document.getElementById('bp-status');
+                if (sys < 140 && dia < 90) {
+                    bpStatus.textContent = '正常';
+                    bpStatus.className = 'status normal';
+                } else if (sys < 160 && dia < 100) {
+                    bpStatus.textContent = '偏高';
+                    bpStatus.className = 'status warning';
+                } else {
+                    bpStatus.textContent = '升高';
+                    bpStatus.className = 'status danger';
+                }
+            }
+            
+            // 心率
+            const hr = document.getElementById('heartrate').value;
+            if (hr) {
+                document.getElementById('hr-value').textContent = hr;
+                const hrStatus = document.getElementById('hr-status');
+                if (hr >= 60 && hr <= 100) {
+                    hrStatus.textContent = '正常';
+                    hrStatus.className = 'status normal';
+                } else {
+                    hrStatus.textContent = '异常';
+                    hrStatus.className = 'status warning';
+                }
+            }
+            
+            // 体重
+            const weight = document.getElementById('weight').value;
+            if (weight) {
+                document.getElementById('weight-value').textContent = weight;
+            }
+            
+            // BMI
+            calculateBMI();
+        }
+        
+        // 计算 BMI
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            
+            if (weight && height) {
+                const bmi = (weight / Math.pow(height / 100, 2)).toFixed(1);
+                document.getElementById('bmi-value').textContent = bmi;
+                
+                const bmiStatus = document.getElementById('bmi-status');
+                if (bmi < 24) {
+                    bmiStatus.textContent = '正常';
+                    bmiStatus.className = 'status normal';
+                } else if (bmi < 28) {
+                    bmiStatus.textContent = '超重';
+                    bmiStatus.className = 'status warning';
+                } else {
+                    bmiStatus.textContent = '肥胖';
+                    bmiStatus.className = 'status danger';
+                }
+            }
+        }
+        
+        // 检查血压异常
+        function checkBP() {
+            const sys = parseInt(document.getElementById('systolic').value);
+            const dia = parseInt(document.getElementById('diastolic').value);
+            
+            if (!sys || !dia) {
+                alert('请先填写血压数据');
+                return;
+            }
+            
+            let msg = '血压分析结果：\n\n';
+            
+            if (sys < 140 && dia < 90) {
+                msg += '✅ 血压控制在正常范围\n';
+            } else if (sys >= 180 || dia >= 110) {
+                msg += '⚠️ 血压严重升高，建议立即就医！\n';
+            } else if (sys >= 140 || dia >= 90) {
+                msg += '⚠️ 血压偏高，建议调整用药或生活方式\n';
+            }
+            
+            msg += '\n收缩压: ' + sys + ' mmHg\n';
+            msg += '舒张压: ' + dia + ' mmHg';
+            
+            alert(msg);
+        }
+        
+        // 添加日志
+        function addLog(msg) {
+            const container = document.getElementById('log-container');
+            const item = document.createElement('div');
+            item.className = 'log-item';
+            item.textContent = new Date().toLocaleTimeString() + ' ' + msg;
+            container.insertBefore(item, container.firstChild);
+        }
+        
+        // 提交表单
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            if (!name) {
+                alert('请填写患者姓名');
+                return;
+            }
+            
+            alert('随访记录已保存！\n\n患者：' + name + '\n日期：' + document.getElementById('date').value);
+            addLog('随访记录已提交');
+        }
+        
+        // 重置表单
+        function resetForm() {
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                if (el.type === 'date') {
+                    el.valueAsDate = new Date();
+                } else {
+                    el.value = '';
+                }
+            });
+            document.getElementById('bp-value').textContent = '--/--';
+            document.getElementById('hr-value').textContent = '--';
+            document.getElementById('weight-value').textContent = '--';
+            document.getElementById('bmi-value').textContent = '--';
+            document.getElementById('bp-status').textContent = '待测量';
+            document.getElementById('bp-status').className = 'status';
+            document.getElementById('hr-status').textContent = '待测量';
+            document.getElementById('bmi-status').textContent = '待计算';
+            addLog('表单已重置');
+        }
+    </script>
+</body>
+</html>

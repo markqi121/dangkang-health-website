@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page-Agent 智能随访 Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        h1 { font-size: 28px; color: #333; margin-bottom: 10px; }
+        .subtitle { color: #666; margin-bottom: 30px; }
+        .demo-list {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .demo-item {
+            display: block;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+        .demo-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+        }
+        .demo-item h3 { font-size: 18px; margin-bottom: 8px; }
+        .demo-item p { font-size: 14px; opacity: 0.8; }
+        .tech-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 智能随访 Demo</h1>
+        <p class="subtitle">Page-Agent 驱动的慢病随访管理系统</p>
+        
+        <div class="demo-list">
+            <a href="hypertension-followup.html" class="demo-item">
+                <h3>📋 高血压随访表</h3>
+                <p>AI智能填写、血压异常检测、自动计算BMI</p>
+            </a>
+            
+            <a href="followup-demo.html" class="demo-item">
+                <h3>📋 慢病随访管理（完整版）</h3>
+                <p>高血压+糖尿病随访、历史记录查看</p>
+            </a>
+        </div>
+        
+        <span class="tech-badge">Powered by Page-Agent</span>
+    </div>
+</body>
+</html>
