@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我们 - 当康健康科技有限公司</title>
+  <meta name="description" content="了解当康健康的发展历程、企业文化与核心团队。当康健康专注基层健康物联网，为医疗机构提供一站式数字化健康管理解决方案。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc',
+              400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
+              800: '#075985', 900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-bg { background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%); }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-900">
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="flex items-center">
+            <img src="/images/logo.png" alt="当康健康" class="h-10 w-auto">
+            <div class="ml-3 border-l-2 border-gray-200 pl-3">
+              <div class="text-sm font-bold text-gray-800">基层健康物联网</div>
+              <div class="text-xs text-gray-500">基层公卫 | 企业健康 | 健康康养</div>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-gray-600 hover:text-primary-600 font-medium">首页</a>
+          <a href="/products/" class="text-gray-600 hover:text-primary-600 font-medium">产品中心</a>
+          <a href="/solutions/" class="text-gray-600 hover:text-primary-600 font-medium">解决方案</a>
+          <a href="/about/" class="text-primary-600 font-medium">关于我们</a>
+          <a href="/contact/" class="text-gray-600 hover:text-primary-600 font-medium">联系我们</a>
+          <a href="/contact/" class="bg-primary-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-700">立即咨询</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="gradient-bg text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">关于当康健康</h1>
+      <p class="text-xl text-blue-100 max-w-3xl mx-auto">专注基层健康物联网，让健康触手可及</p>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">公司简介</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>深圳小水滴健康科技有限公司（品牌：当康健康）成立于2018年，是一家专注于基层健康物联网的高新技术企业。</p>
+            <p>公司以"让健康触手可及"为使命，以智能硬件+云端平台为核心，为医疗机构提供一站式数字化健康管理解决方案，助力分级诊疗落地。</p>
+            <p>目前，当康健康已服务全国1000+基层医疗机构，累计服务居民500万+人次，客户满意度达98%。</p>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl p-12 flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">当康健康</h3>
+            <p class="text-gray-600">深圳小水滴健康科技有限公司</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center">
+        <p class="text-gray-400">服务热线：400-0663-800 | 联系电话：176888164877 | 官网：www.dihealth.com.cn</p>
+        <p class="text-gray-500 text-sm mt-4">© 2024 深圳小水滴健康科技有限公司 版权所有</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
