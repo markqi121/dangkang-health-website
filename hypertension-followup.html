@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高血压随访表 - Page-Agent 智能填写</title>
-    <!-- 引入 Page-Agent -->
-    <script src="https://cdn.jsdelivr.net/npm/page-agent@latest/dist/umd/page-agent.js"></script>
+    <title>高血压随访表 - AI智能填写Demo</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -52,11 +50,8 @@
         }
         
         .ai-status.ready { border-left: 3px solid #4ade80; }
-        .ai-status.error { border-left: 3px solid #f87171; }
         
-        .ai-input-box {
-            margin-bottom: 15px;
-        }
+        .ai-input-box { margin-bottom: 15px; }
         
         .ai-input-box textarea {
             width: 100%;
@@ -82,11 +77,8 @@
         }
         
         .ai-btn:hover { transform: scale(1.02); }
-        .ai-btn:disabled { opacity: 0.5; cursor: not-allowed; }
         
-        .quick-cmds {
-            margin-top: 15px;
-        }
+        .quick-cmds { margin-top: 15px; }
         
         .quick-cmds h4 {
             font-size: 13px;
@@ -173,9 +165,7 @@
             gap: 15px;
         }
         
-        .form-group {
-            margin-bottom: 10px;
-        }
+        .form-group { margin-bottom: 10px; }
         
         .form-group label {
             display: block;
@@ -278,15 +268,9 @@
         
         /* 响应式 */
         @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            .ai-panel {
-                position: static;
-            }
-            .vital-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .container { grid-template-columns: 1fr; }
+            .ai-panel { position: static; }
+            .vital-cards { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -294,45 +278,26 @@
     <div class="container">
         <!-- AI 控制面板 -->
         <div class="ai-panel">
-            <h2>🤖 Page-Agent 智能助手</h2>
+            <h2>🤖 AI 智能助手</h2>
             
             <div class="ai-status ready" id="ai-status">
-                ✓ Page-Agent 已加载，等待指令
+                ✓ AI助手已就绪，点击快捷指令开始
             </div>
             
             <div class="ai-input-box">
-                <textarea id="ai-command" placeholder="输入自然语言指令，例如：&#10;• 帮我填写张三的随访记录&#10;• 填入血压145/95，心率78&#10;• 自动检查表单完整性"></textarea>
+                <textarea id="ai-command" placeholder="输入指令，如：&#10;• 填写张三的随访记录&#10;• 血压145/95，心率78"></textarea>
             </div>
             
-            <button class="ai-btn" id="ai-execute-btn" onclick="executeAI()">
-                🚀 执行 AI 指令
-            </button>
-            
-            <button class="ai-btn" onclick="initPageAgent()" style="background:rgba(255,255,255,0.2);color:white;">
-                ⚙️ 配置 API Key
-            </button>
+            <button class="ai-btn" onclick="executeAI()">🚀 执行指令</button>
             
             <div class="quick-cmds">
                 <h4>快捷指令</h4>
                 <div class="cmd-list">
-                    <div class="cmd-item" onclick="runCmd('填写张三的随访记录，血压145/95，心率78')">
-                        📝 填写示例数据
-                    </div>
-                    <div class="cmd-item" onclick="runCmd('自动计算患者的BMI')">
-                        🧮 计算BMI
-                    </div>
-                    <div class="cmd-item" onclick="runCmd('检查血压是否正常')">
-                        ⚠️ 检查血压异常
-                    </div>
-                    <div class="cmd-item" onclick="runCmd('填写用药情况：氨氯地平5mg每日一次')">
-                        💊 填写用药
-                    </div>
-                    <div class="cmd-item" onclick="runCmd('清空所有表单内容')">
-                        🗑️ 清空表单
-                    </div>
-                    <div class="cmd-item" onclick="runCmd('提交这份随访记录')">
-                        ✅ 提交表单
-                    </div>
+                    <div class="cmd-item" onclick="fillDemoData()">📝 填写示例数据</div>
+                    <div class="cmd-item" onclick="calculateBMI()">🧮 计算BMI</div>
+                    <div class="cmd-item" onclick="checkBP()">⚠️ 检查血压异常</div>
+                    <div class="cmd-item" onclick="resetForm()">🗑️ 清空表单</div>
+                    <div class="cmd-item" onclick="submitForm()">✅ 提交表单</div>
                 </div>
             </div>
             
@@ -427,55 +392,10 @@
                     <label>身高 (cm)</label>
                     <input type="number" id="height" placeholder="如：175" onchange="updateVitals()">
                 </div>
-                <div class="form-group">
-                    <label>腰围 (cm)</label>
-                    <input type="number" id="waist" placeholder="如：85">
-                </div>
-            </div>
-            
-            <!-- 症状 -->
-            <div class="section-title">三、症状</div>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>头痛</label>
-                    <select id="symptom-headache">
-                        <option value="">请选择</option>
-                        <option value="无">无</option>
-                        <option value="偶有">偶有</option>
-                        <option value="经常">经常</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>头晕</label>
-                    <select id="symptom-dizzy">
-                        <option value="">请选择</option>
-                        <option value="无">无</option>
-                        <option value="偶有">偶有</option>
-                        <option value="经常">经常</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>心悸</label>
-                    <select id="symptom-palpitation">
-                        <option value="">请选择</option>
-                        <option value="无">无</option>
-                        <option value="偶有">偶有</option>
-                        <option value="经常">经常</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>胸闷</label>
-                    <select id="symptom-chest">
-                        <option value="">请选择</option>
-                        <option value="无">无</option>
-                        <option value="偶有">偶有</option>
-                        <option value="经常">经常</option>
-                    </select>
-                </div>
             </div>
             
             <!-- 用药情况 -->
-            <div class="section-title">四、用药情况</div>
+            <div class="section-title">三、用药情况</div>
             <div class="form-grid">
                 <div class="form-group">
                     <label>是否规律服药</label>
@@ -483,7 +403,6 @@
                         <option value="">请选择</option>
                         <option value="是">是</option>
                         <option value="否">否</option>
-                        <option value="偶尔">偶尔</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -501,15 +420,15 @@
             </div>
             
             <!-- 生活方式 -->
-            <div class="section-title">五、生活方式指导</div>
+            <div class="section-title">四、生活方式指导</div>
             <div class="form-grid">
                 <div class="form-group">
                     <label>日摄盐量</label>
                     <select id="lifestyle-salt">
                         <option value="">请选择</option>
                         <option value="清淡">清淡(&lt;6g/天)</option>
-                        <option value="适中">适中(6-10g/天)</option>
-                        <option value="偏咸">偏咸(&gt;10g/天)</option>
+                        <option value="适中">适中</option>
+                        <option value="偏咸">偏咸</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -519,7 +438,6 @@
                         <option value="每天">每天</option>
                         <option value="每周3-5次">每周3-5次</option>
                         <option value="偶尔">偶尔</option>
-                        <option value="很少">很少</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -538,13 +456,12 @@
                         <option value="从不">从不</option>
                         <option value="已戒">已戒</option>
                         <option value="偶尔">偶尔</option>
-                        <option value="经常">经常</option>
                     </select>
                 </div>
             </div>
             
             <!-- 随访评估 -->
-            <div class="section-title">六、随访评估</div>
+            <div class="section-title">五、随访评估</div>
             <div class="form-grid">
                 <div class="form-group">
                     <label>血压控制情况</label>
@@ -576,135 +493,46 @@
         // 设置今天日期
         document.getElementById('date').valueAsDate = new Date();
         
-        // Page Agent 实例
-        let pageAgent = null;
-        
-        // 初始化 Page Agent
-        function initPageAgent() {
-            const apiKey = prompt('请输入你的 API Key（如通义千问）：');
-            if (!apiKey) return;
-            
-            try {
-                pageAgent = new PageAgent({
-                    model: 'qwen-max',
-                    baseURL: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
-                    apiKey: apiKey
-                });
-                
-                document.getElementById('ai-status').className = 'ai-status ready';
-                document.getElementById('ai-status').textContent = '✓ Page-Agent 已配置，可以开始使用';
-                addLog('Page-Agent 初始化成功');
-            } catch (e) {
-                document.getElementById('ai-status').className = 'ai-status error';
-                document.getElementById('ai-status').textContent = '✗ 初始化失败: ' + e.message;
-            }
-        }
-        
         // 执行 AI 指令
-        async function executeAI() {
+        function executeAI() {
             const cmd = document.getElementById('ai-command').value.trim();
             if (!cmd) {
-                alert('请输入指令');
+                addLog('请输入指令');
                 return;
             }
             
             addLog('执行: ' + cmd);
             
-            // 如果已配置 Page-Agent，使用真实 AI
-            if (pageAgent) {
-                try {
-                    document.getElementById('ai-execute-btn').disabled = true;
-                    document.getElementById('ai-execute-btn').textContent = '⏳ 执行中...';
-                    
-                    const result = await pageAgent.execute(cmd);
-                    addLog('结果: ' + result);
-                } catch (e) {
-                    addLog('错误: ' + e.message);
-                } finally {
-                    document.getElementById('ai-execute-btn').disabled = false;
-                    document.getElementById('ai-execute-btn').textContent = '🚀 执行 AI 指令';
-                }
-            } else {
-                // 模拟执行
-                simulateAI(cmd);
-            }
-        }
-        
-        // 模拟 AI 执行（无 API Key 时）
-        function simulateAI(cmd) {
-            addLog('模拟模式: 解析指令...');
-            
-            // 解析姓名
-            const nameMatch = cmd.match(/张三|李四|王五/);
-            if (nameMatch) {
-                document.getElementById('name').value = nameMatch[0];
-                addLog('→ 填写姓名: ' + nameMatch[0]);
-            }
-            
-            // 解析血压
-            const bpMatch = cmd.match(/血压\s*(\d+)[\/\s](\d+)/);
-            if (bpMatch) {
-                document.getElementById('systolic').value = bpMatch[1];
-                document.getElementById('diastolic').value = bpMatch[2];
-                addLog('→ 填写血压: ' + bpMatch[1] + '/' + bpMatch[2]);
-                updateVitals();
-            }
-            
-            // 解析心率
-            const hrMatch = cmd.match(/心率\s*(\d+)/);
-            if (hrMatch) {
-                document.getElementById('heartrate').value = hrMatch[1];
-                addLog('→ 填写心率: ' + hrMatch[1]);
-                updateVitals();
-            }
-            
-            // 计算BMI
-            if (cmd.includes('BMI') || cmd.includes('计算')) {
-                calculateBMI();
-                addLog('→ 计算BMI');
-            }
-            
-            // 检查血压
-            if (cmd.includes('检查') || cmd.includes('异常')) {
-                checkBP();
-                addLog('→ 检查血压异常');
-            }
-            
-            // 填写用药
-            if (cmd.includes('用药') || cmd.includes('药')) {
-                const medMatch = cmd.match(/用药[情况]*[：:]?\s*(.+)/);
-                if (medMatch) {
-                    document.getElementById('med-current').value = medMatch[1];
-                    document.getElementById('med-regular').value = '是';
-                    addLog('→ 填写用药: ' + medMatch[1]);
-                }
-            }
-            
-            // 清空表单
-            if (cmd.includes('清空') || cmd.includes('重置')) {
-                resetForm();
-                addLog('→ 清空表单');
-            }
-            
-            // 提交表单
-            if (cmd.includes('提交')) {
-                submitForm();
-                addLog('→ 提交表单');
-            }
-            
-            // 填写示例数据
-            if (cmd.includes('示例') || cmd.includes('张三的随访')) {
+            // 解析指令
+            if (cmd.includes('张三') || cmd.includes('示例')) {
                 fillDemoData();
-                addLog('→ 填写示例数据完成');
+            } else if (cmd.includes('BMI') || cmd.includes('计算')) {
+                calculateBMI();
+            } else if (cmd.includes('血压') || cmd.includes('异常')) {
+                checkBP();
+            } else if (cmd.includes('清空') || cmd.includes('重置')) {
+                resetForm();
+            } else if (cmd.includes('提交')) {
+                submitForm();
+            } else {
+                // 解析血压
+                const bpMatch = cmd.match(/血压\s*(\d+)[\/\s](\d+)/);
+                if (bpMatch) {
+                    document.getElementById('systolic').value = bpMatch[1];
+                    document.getElementById('diastolic').value = bpMatch[2];
+                    updateVitals();
+                    addLog('→ 填写血压: ' + bpMatch[1] + '/' + bpMatch[2]);
+                }
+                // 解析心率
+                const hrMatch = cmd.match(/心率\s*(\d+)/);
+                if (hrMatch) {
+                    document.getElementById('heartrate').value = hrMatch[1];
+                    updateVitals();
+                    addLog('→ 填写心率: ' + hrMatch[1]);
+                }
             }
             
             addLog('✓ 执行完成');
-        }
-        
-        // 快捷指令
-        function runCmd(cmd) {
-            document.getElementById('ai-command').value = cmd;
-            executeAI();
         }
         
         // 填写示例数据
@@ -719,9 +547,6 @@
             document.getElementById('heartrate').value = '78';
             document.getElementById('weight').value = '75';
             document.getElementById('height').value = '172';
-            document.getElementById('waist').value = '88';
-            document.getElementById('symptom-headache').value = '偶有';
-            document.getElementById('symptom-dizzy').value = '无';
             document.getElementById('med-regular').value = '是';
             document.getElementById('med-reaction').value = '无';
             document.getElementById('med-current').value = '氨氯地平 5mg qd\n缬沙坦 80mg qd';
@@ -731,6 +556,7 @@
             document.getElementById('lifestyle-drink').value = '偶尔';
             document.getElementById('control-bp').value = '未达标';
             updateVitals();
+            addLog('已填写示例数据');
         }
         
         // 更新生命体征显示
@@ -816,14 +642,15 @@
                 msg += '✅ 血压控制在正常范围\n';
             } else if (sys >= 180 || dia >= 110) {
                 msg += '⚠️ 血压严重升高，建议立即就医！\n';
-            } else if (sys >= 140 || dia >= 90) {
-                msg += '⚠️ 血压偏高，建议调整用药或生活方式\n';
+            } else {
+                msg += '⚠️ 血压偏高，建议调整用药\n';
             }
             
             msg += '\n收缩压: ' + sys + ' mmHg\n';
             msg += '舒张压: ' + dia + ' mmHg';
             
             alert(msg);
+            addLog('血压检查完成');
         }
         
         // 添加日志
