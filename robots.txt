@@ -1,0 +1,9 @@
+# robots.txt for Dangkang Health Website
+# https://markqi121.github.io/dangkang-health-website/
+
+# 允许所有爬虫访问
+User-agent: *
+Allow: /
+
+# Sitemap 位置
+Sitemap: https://markqi121.github.io/dangkang-health-website/sitemap.xml
