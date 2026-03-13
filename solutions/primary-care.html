@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基层公卫数字化方案 - 社区卫生服务|乡镇卫生院 | 当康健康</title>
+  <meta name="description" content="当康健康提供基层公共卫生服务数字化解决方案，包括健康一体机、健康随访包、公卫管理系统等，助力社区卫生服务中心、乡镇卫生院提升服务能力。">
+  <meta name="keywords" content="基层公卫,公共卫生服务,社区卫生服务,乡镇卫生院,基本公卫,公卫数字化">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc',
+              400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
+              800: '#075985', 900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-bg { background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%); }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center">
+            <img src="../images/logo.png" alt="当康健康" class="h-10 w-auto">
+            <div class="ml-3 border-l-2 border-gray-200 pl-3">
+              <div class="text-sm font-bold text-gray-800">基层健康物联网</div>
+              <div class="text-xs text-gray-500">基层公卫 | 企业健康 | 健康康养</div>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-gray-600 hover:text-primary-600 font-medium">首页</a>
+          <a href="../products/index.html" class="text-gray-600 hover:text-primary-600 font-medium">产品中心</a>
+          <a href="../solutions/index.html" class="text-primary-600 font-medium">解决方案</a>
+          <a href="../about/index.html" class="text-gray-600 hover:text-primary-600 font-medium">关于我们</a>
+          <a href="../contact/index.html" class="bg-primary-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-700">立即咨询</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 面包屑 -->
+  <div class="bg-gray-50 border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center text-sm text-gray-500">
+        <a href="../index.html" class="hover:text-primary-600">首页</a>
+        <span class="mx-2">&gt;&gt;</span>
+        <a href="../solutions/index.html" class="hover:text-primary-600">解决方案</a>
+        <span class="mx-2">&gt;&gt;</span>
+        <span class="text-gray-900 font-medium">基层公卫数字化方案</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="gradient-bg text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">基层公卫数字化解决方案</h1>
+          <p class="text-xl text-blue-100 mb-6">助力社区卫生服务中心、乡镇卫生院服务能力提升</p>
+          <p class="text-lg text-blue-100 mb-8">当康健康为基层医疗卫生机构提供一站式数字化解决方案，涵盖健康一体机、健康随访包、健康小屋等智能设备及配套软件系统，助力基本公共卫生服务提质增效。</p>
+          <a href="../contact/index.html" class="inline-block bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">免费获取方案</a>
+        </div>
+        <div class="hidden lg:block">
+          <div class="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white/10 rounded-xl p-4 text-center">
+                <div class="text-3xl font-bold text-emerald-400">1000+</div>
+                <div class="text-sm text-blue-100">基层医疗机构</div>
+              </div>
+              <div class="bg-white/10 rounded-xl p-4 text-center">
+                <div class="text-3xl font-bold text-emerald-400">500万+</div>
+                <div class="text-sm text-blue-100">服务居民人次</div>
+              </div>
+              <div class="bg-white/10 rounded-xl p-4 text-center">
+                <div class="text-3xl font-bold text-emerald-400">14项</div>
+                <div class="text-sm text-blue-100">公卫服务覆盖</div>
+              </div>
+              <div class="bg-white/10 rounded-xl p-4 text-center">
+                <div class="text-3xl font-bold text-emerald-400">98%</div>
+                <div class="text-sm text-blue-100">客户满意度</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服务内容 -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">基本公共卫生服务内容</h2>
+        <p class="text-gray-600">当康健康解决方案覆盖国家基本公共卫生服务主要项目</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
+        <div class="bg-gray-50 rounded-xl p-4 text-center">
+          <div class="w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
+          <span class="text-xs font-medium text-gray-700">居民健康档案</span>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center">
+          <div class="w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </div>
+          <span class="text-xs font-medium text-gray-700">健康教育</span>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center">
+          <div class="w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          </div>
+          <span class="text-xs font-medium text-gray-700">慢病管理</span>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center">
+          <div class="w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <span class="text-xs font-medium text-gray-700">老年人健康</span>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center">
+          <div class="w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <span class="text-xs font-medium text-gray-700">0-6岁儿童</span>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center">
+          <div class="w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          </div>
+          <span class="text-xs font-medium text-gray-700">孕产妇健康</span>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center">
+          <div class="w-12 h-12 bg-primary-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <span class="text-xs font-medium text-gray-700">预防接种</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 解决方案 -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">基层公卫数字化解决方案</h2>
+        <p class="text-gray-600">智能硬件+软件平台，全面提升基层医疗服务能力</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 健康一体机 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-48 bg-gray-50 flex items-center justify-center">
+            <img src="../images/products/t320.png" alt="健康一体机" class="h-40 object-contain">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">健康一体机</h3>
+            <p class="text-gray-600 text-sm mb-4">自助式健康检测设备，支持心电图、血压、血糖、血脂等多项检测，适合社区卫生服务中心、乡镇卫生院使用。</p>
+            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>15+检测项目</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>身份证识别</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>数据自动上传</li>
+            </ul>
+            <a href="../products/index.html" class="text-primary-600 font-medium hover:underline">了解产品 →</a>
+          </div>
+        </div>
+        <!-- 健康随访包 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-48 bg-gray-50 flex items-center justify-center">
+            <img src="../images/products/m-series.png" alt="健康随访包" class="h-40 object-contain">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">健康随访包</h3>
+            <p class="text-gray-600 text-sm mb-4">便携式公卫随访设备，适合上门服务，支持家庭医生签约、慢病随访、老年人健康管理等服务场景。</p>
+            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>便携设计</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>4G实时传输</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>8小时续航</li>
+            </ul>
+            <a href="health-followup.html" class="text-primary-600 font-medium hover:underline">了解详情 →</a>
+          </div>
+        </div>
+        <!-- 健康小屋 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center">
+            <svg class="w-32 h-32 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">健康小屋</h3>
+            <p class="text-gray-600 text-sm mb-4">一站式健康管理服务空间，配备健康一体机等设备，为居民提供便捷的自助体检服务。</p>
+            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>自助体检</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>健康档案建立</li>
+              <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>健康评估报告</li>
+            </ul>
+            <a href="health-hut.html" class="text-primary-600 font-medium hover:underline">了解详情 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 适用场景 -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">适用机构</h2>
+        <p class="text-gray-600">为各类基层医疗卫生机构提供定制化解决方案</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gray-50 rounded-xl p-6 text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">社区卫生服务中心</h3>
+          <p class="text-gray-600 text-sm">提升社区公卫服务能力，提高居民满意度</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">乡镇卫生院</h3>
+          <p class="text-gray-600 text-sm">助力农村基层医疗服务能力提升</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">村卫生室</h3>
+          <p class="text-gray-600 text-sm">便携设备，方便村医开展公卫服务</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">社区卫生站</h3>
+          <p class="text-gray-600 text-sm">小型化设备，适合社区站点使用</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服务流程 -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">服务流程</h2>
+        <p class="text-gray-600">从需求到落地，全程服务支持</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div class="bg-white rounded-xl p-6 text-center">
+          <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">1</div>
+          <h3 class="font-bold text-gray-900 mb-2">需求调研</h3>
+          <p class="text-gray-600 text-sm">了解机构现状和需求</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center">
+          <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">2</div>
+          <h3 class="font-bold text-gray-900 mb-2">方案设计</h3>
+          <p class="text-gray-600 text-sm">定制化解决方案</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center">
+          <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">3</div>
+          <h3 class="font-bold text-gray-900 mb-2">设备部署</h3>
+          <p class="text-gray-600 text-sm">安装调试培训</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center">
+          <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">4</div>
+          <h3 class="font-bold text-gray-900 mb-2">系统对接</h3>
+          <p class="text-gray-600 text-sm">对接公卫系统</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center">
+          <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">5</div>
+          <h3 class="font-bold text-gray-900 mb-2">运维支持</h3>
+          <p class="text-gray-600 text-sm">7×24技术支持</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">获取基层公卫数字化方案</h2>
+      <p class="text-xl text-blue-100 mb-8">专业顾问为您提供定制化解决方案</p>
+      <a href="../contact/index.html" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100">立即咨询</a>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <img src="../images/logo.png" alt="当康健康" class="h-10 mb-4">
+          <p class="text-gray-400">当康健康专注基层健康物联网，为社区卫生服务中心、乡镇卫生院提供一站式数字化健康管理解决方案。</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">产品服务</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="../products/index.html" class="hover:text-white">健康一体机</a></li>
+            <li><a href="health-hut.html" class="hover:text-white">健康小屋</a></li>
+            <li><a href="health-followup.html" class="hover:text-white">健康随访包</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">联系我们</h4>
+          <p class="text-gray-400">服务热线：400-0663-800</p>
+          <p class="text-gray-400">官网：www.dihealth.com.cn</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>© 2024 深圳小水滴健康科技有限公司 版权所有</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
