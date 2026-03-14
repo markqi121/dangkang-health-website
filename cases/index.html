@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成功案例 - 健康一体机案例|社区健康小屋案例 | 当康健康</title>
+  <meta name="description" content="当康健康已服务1000+基层医疗机构，包括社区卫生服务中心、乡镇卫生院、企业健康小屋等，查看成功案例了解当康健康一体机的实际应用效果。">
+  <meta name="keywords" content="健康一体机案例,健康小屋案例,公卫随访案例,社区卫生服务案例">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc',
+              400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
+              800: '#075985', 900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-bg { background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%); }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img src="images/logo.png" alt="当康健康Logo" class="h-10 w-auto">
+            <div class="ml-3 border-l-2 border-gray-200 pl-3">
+              <div class="text-sm font-bold text-gray-800">基层健康物联网</div>
+              <div class="text-xs text-gray-500">基层公卫 | 企业健康 | 健康康养</div>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-600 hover:text-primary-600 font-medium">首页</a>
+          <a href="products/index.html" class="text-gray-600 hover:text-primary-600 font-medium">产品中心</a>
+          <a href="solutions/index.html" class="text-gray-600 hover:text-primary-600 font-medium">解决方案</a>
+          <a href="cases/index.html" class="text-primary-600 font-medium">成功案例</a>
+          <a href="contact/index.html" class="bg-primary-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-700">立即咨询</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="gradient-bg text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">成功案例</h1>
+      <p class="text-xl text-blue-100">服务1000+基层医疗机构，助力公卫服务提质增效</p>
+    </div>
+  </section>
+
+  <!-- 案例统计 -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-gray-50 rounded-xl p-6">
+          <div class="text-3xl font-bold text-primary-600">1000+</div>
+          <div class="text-gray-600">服务机构</div>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6">
+          <div class="text-3xl font-bold text-primary-600">500万+</div>
+          <div class="text-gray-600">检测人次</div>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6">
+          <div class="text-3xl font-bold text-primary-600">31省</div>
+          <div class="text-gray-600">覆盖省份</div>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6">
+          <div class="text-3xl font-bold text-primary-600">98%</div>
+          <div class="text-gray-600">客户满意度</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 案例筛选 -->
+  <section class="py-8 bg-gray-50 border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button class="px-5 py-2 bg-primary-600 text-white rounded-full font-medium" onclick="filterCases('all')">全部案例</button>
+        <button class="px-5 py-2 bg-white text-gray-700 rounded-full font-medium hover:bg-gray-100" onclick="filterCases('community')">社区卫生服务中心</button>
+        <button class="px-5 py-2 bg-white text-gray-700 rounded-full font-medium hover:bg-gray-100" onclick="filterCases('township')">乡镇卫生院</button>
+        <button class="px-5 py-2 bg-white text-gray-700 rounded-full font-medium hover:bg-gray-100" onclick="filterCases('enterprise')">企业健康小屋</button>
+        <button class="px-5 py-2 bg-white text-gray-700 rounded-full font-medium hover:bg-gray-100" onclick="filterCases('elderly')">养老机构</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 案例列表 -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 案例1 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center">
+            <svg class="w-24 h-24 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">社区卫生服务中心</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">深圳市福田区某社区健康服务中心</h3>
+            <p class="text-gray-600 text-sm mb-4">配备当康T320健康一体机，日均检测120+人次，助力基本公卫服务达标。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>设备：T320健康一体机</span>
+              <span class="mx-2">•</span>
+              <span>服务人口：3.5万</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例2 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+            <svg class="w-24 h-24 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">乡镇卫生院</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">河南省某乡镇卫生院</h3>
+            <p class="text-gray-600 text-sm mb-4">配置健康小屋方案，覆盖周边12个村卫生室，公卫随访效率提升60%。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>设备：T200+M系列随访包</span>
+              <span class="mx-2">•</span>
+              <span>覆盖人口：5万+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
+            <svg class="w-24 h-24 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded">企业健康小屋</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">广州某大型企业职工健康小屋</h3>
+            <p class="text-gray-600 text-sm mb-4">员工自助体检，健康数据云端管理，年度体检成本降低40%。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>设备：T680健康一体机</span>
+              <span class="mx-2">•</span>
+              <span>员工数：5000+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例4 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center">
+            <svg class="w-24 h-24 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded">养老机构</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">杭州市某养老院健康小屋</h3>
+            <p class="text-gray-600 text-sm mb-4">为300+老人提供定期健康检测，异常数据及时预警，守护老人健康。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>设备：T320健康一体机</span>
+              <span class="mx-2">•</span>
+              <span>床位数：350张</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例5 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-cyan-100 to-cyan-50 flex items-center justify-center">
+            <svg class="w-24 h-24 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <span class="text-xs bg-cyan-100 text-cyan-600 px-2 py-1 rounded">社区卫生服务中心</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">成都市某社区卫生服务中心</h3>
+            <p class="text-gray-600 text-sm mb-4">配置M系列健康随访包，家庭医生签约服务效率提升50%，居民满意度显著提高。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>设备：M系列随访包×5</span>
+              <span class="mx-2">•</span>
+              <span>签约居民：8000+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例6 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-pink-100 to-pink-50 flex items-center justify-center">
+            <svg class="w-24 h-24 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <span class="text-xs bg-pink-100 text-pink-600 px-2 py-1 rounded">乡镇卫生院</span>
+            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">贵州省某县乡镇卫生院</h3>
+            <p class="text-gray-600 text-sm mb-4">山地区域公卫随访难题解决，健康随访包助力上门服务，服务覆盖偏远山区。</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span>设备：M系列随访包</span>
+              <span class="mx-2">•</span>
+              <span>覆盖村庄：18个</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 客户评价 -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">客户评价</h2>
+        <p class="text-gray-600">听听用户怎么说</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <span class="text-primary-600 font-bold">王</span>
+            </div>
+            <div class="ml-3">
+              <div class="font-bold text-gray-900">王主任</div>
+              <div class="text-sm text-gray-500">社区卫生服务中心</div>
+            </div>
+          </div>
+          <p class="text-gray-600">"当康健康一体机操作简单，居民自助检测，大大减轻了我们的工作量。售后服务也很到位。"</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <span class="text-green-600 font-bold">李</span>
+            </div>
+            <div class="ml-3">
+              <div class="font-bold text-gray-900">李院长</div>
+              <div class="text-sm text-gray-500">乡镇卫生院</div>
+            </div>
+          </div>
+          <p class="text-gray-600">"健康随访包便携好用，下乡随访方便多了。数据自动上传公卫系统，省去了很多录入工作。"</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <span class="text-purple-600 font-bold">张</span>
+            </div>
+            <div class="ml-3">
+              <div class="font-bold text-gray-900">张经理</div>
+              <div class="text-sm text-gray-500">企业HR</div>
+            </div>
+          </div>
+          <p class="text-gray-600">"企业健康小屋让员工体检更便捷，健康数据管理也方便，体检成本降低了40%，非常满意。"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">成为下一个成功案例</h2>
+      <p class="text-blue-100 mb-8">专业顾问为您提供定制化解决方案</p>
+      <a href="contact/index.html" class="inline-block bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100">立即咨询</a>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <img src="images/logo.png" alt="当康健康Logo" class="h-10 mb-4">
+          <p class="text-gray-400">当康健康专注基层健康物联网，已服务1000+基层医疗机构，助力公卫服务提质增效。</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">产品服务</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="products/index.html" class="hover:text-white">健康一体机</a></li>
+            <li><a href="solutions/health-hut.html" class="hover:text-white">健康小屋</a></li>
+            <li><a href="products/m-series/index.html" class="hover:text-white">健康随访包</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">联系我们</h4>
+          <p class="text-gray-400">服务热线：400-0663-800</p>
+          <p class="text-gray-400">官网：www.dihealth.com.cn</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+        <p>© 2024 深圳小水滴健康科技有限公司 版权所有</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

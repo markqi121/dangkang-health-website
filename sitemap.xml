@@ -98,33 +98,35 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- 解决方案 - 健康小屋 -->
+  <!-- 解决方案页面 -->
   <url>
     <loc>https://markqi121.github.io/dangkang-health-website/solutions/health-hut.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 解决方案 - 健康随访包 -->
   <url>
     <loc>https://markqi121.github.io/dangkang-health-website/solutions/health-followup.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 解决方案 - 基层公卫 -->
   <url>
     <loc>https://markqi121.github.io/dangkang-health-website/solutions/primary-care.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 解决方案 - 社区健康小屋 -->
   <url>
     <loc>https://markqi121.github.io/dangkang-health-website/solutions/community-health.html</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 成功案例 -->
+  <url>
+    <loc>https://markqi121.github.io/dangkang-health-website/cases/</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
