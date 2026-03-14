@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健康知识库 - 基层公卫资讯 | 当康健康</title>
+  <meta name="description" content="当康健康知识库，分享健康一体机使用指南、基层公卫政策解读、案例分享等专业内容，助力基层医疗机构提升服务能力。">
+  <meta name="keywords" content="健康一体机知识,基层公卫资讯,健康小屋案例,公卫体检政策,慢病管理知识">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            health: {
+              green: '#10b981',
+              teal: '#14b8a6',
+              blue: '#3b82f6',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-bg { background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%); }
+    .article-card:hover .article-image { transform: scale(1.05); }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-900">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center">
+            <img src="../images/logo.png" alt="当康健康" class="h-10 w-auto">
+            <div class="ml-3 border-l-2 border-gray-200 pl-3">
+              <div class="text-sm font-bold text-gray-800">基层健康物联网</div>
+              <div class="text-xs text-gray-500">基层公卫 | 企业健康 | 健康康养</div>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">首页</a>
+          <a href="../products/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">产品中心</a>
+          <a href="../solutions/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">解决方案</a>
+          <a href="../about/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">关于我们</a>
+          <a href="../contact/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">联系我们</a>
+          <a href="../contact/" class="bg-primary-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-700 transition-colors">立即咨询</a>
+        </div>
+        <div class="flex items-center md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden py-4 border-t">
+        <div class="space-y-2">
+          <a href="../index.html" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">首页</a>
+          <a href="../products/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">产品中心</a>
+          <a href="../solutions/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">解决方案</a>
+          <a href="../about/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">关于我们</a>
+          <a href="../contact/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">联系我们</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg text-white py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">健康知识库</h1>
+      <p class="text-xl text-blue-100 max-w-3xl mx-auto">分享健康一体机使用指南、基层公卫政策解读、案例分享等专业内容</p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="py-8 bg-gray-50 border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="px-6 py-2 bg-primary-600 text-white rounded-full font-medium text-sm">全部文章</button>
+        <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium text-sm hover:bg-gray-100 border">产品指南</button>
+        <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium text-sm hover:bg-gray-100 border">政策解读</button>
+        <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium text-sm hover:bg-gray-100 border">案例分享</button>
+        <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium text-sm hover:bg-gray-100 border">健康科普</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Article -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 lg:p-12">
+          <div class="text-white">
+            <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">精选推荐</span>
+            <h2 class="text-2xl lg:text-3xl font-bold mb-4">健康一体机助力基层公卫体检效率提升80%</h2>
+            <p class="text-blue-100 mb-6">深度解析健康一体机在老年人健康管理、慢病随访等公卫服务中的应用，分享提升服务效率的实用技巧。</p>
+            <div class="flex items-center text-sm text-blue-100 mb-6">
+              <span>2024年1月15日</span>
+              <span class="mx-3">·</span>
+              <span>阅读时间 8分钟</span>
+            </div>
+            <a href="#" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
+              阅读全文
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+          <div class="hidden lg:flex items-center justify-center">
+            <div class="w-64 h-64 bg-white/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-32 h-32 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article List -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Article 1 -->
+        <article class="article-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-50 overflow-hidden">
+            <div class="article-image w-full h-full flex items-center justify-center transition-transform duration-300">
+              <svg class="w-24 h-24 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-medium rounded-full">产品指南</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+              健康一体机操作完全指南：从入门到精通
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+              详细介绍健康一体机各项检测功能的使用方法，包括血压、血糖、心电、血氧等检测操作步骤，以及日常维护保养要点。
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <span>2024年1月10日</span>
+              <span>阅读 2,856次</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-emerald-100 to-emerald-50 overflow-hidden">
+            <div class="article-image w-full h-full flex items-center justify-center transition-transform duration-300">
+              <svg class="w-24 h-24 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-emerald-50 text-emerald-600 text-xs font-medium rounded-full">案例分享</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+              某社区卫生服务中心：健康小屋落地实践分享
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+              深入剖析某社区卫生服务中心健康小屋建设经验，从选址规划、设备配置到运营管理的全流程分享，为其他机构提供参考。
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <span>2024年1月8日</span>
+              <span>阅读 1,923次</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-50 overflow-hidden">
+            <div class="article-image w-full h-full flex items-center justify-center transition-transform duration-300">
+              <svg class="w-24 h-24 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">政策解读</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+              2024年基本公共卫生服务政策要点解读
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+              解读2024年基本公共卫生服务政策新变化，包括老年人健康管理、高血压糖尿病随访、电子健康档案管理等关键内容。
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <span>2024年1月5日</span>
+              <span>阅读 3,412次</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-violet-100 to-violet-50 overflow-hidden">
+            <div class="article-image w-full h-full flex items-center justify-center transition-transform duration-300">
+              <svg class="w-24 h-24 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-violet-50 text-violet-600 text-xs font-medium rounded-full">健康科普</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+              血压测量不准确？可能是这些细节没注意
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+              血压测量看似简单，但很多细节会影响准确性。本文详解血压测量的正确姿势、时机选择、设备校准等关键要点。
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <span>2024年1月3日</span>
+              <span>阅读 2,187次</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="article-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-50 overflow-hidden">
+            <div class="article-image w-full h-full flex items-center justify-center transition-transform duration-300">
+              <svg class="w-24 h-24 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-orange-50 text-orange-600 text-xs font-medium rounded-full">案例分享</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+              家庭医生签约服务：健康随访包提升服务效率
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+              分享某县家庭医生签约服务团队使用健康随访包的经验，如何通过移动检测设备提升上门随访效率和服务质量。
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <span>2023年12月28日</span>
+              <span>阅读 1,654次</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="article-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="h-48 bg-gradient-to-br from-teal-100 to-teal-50 overflow-hidden">
+            <div class="article-image w-full h-full flex items-center justify-center transition-transform duration-300">
+              <svg class="w-24 h-24 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 bg-teal-50 text-teal-600 text-xs font-medium rounded-full">产品指南</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+              健康一体机检测数据如何对接公卫系统
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+              详解健康一体机与基本公共卫生服务信息系统的对接流程、数据标准、常见问题及解决方案，助力数据互联互通。
+            </p>
+            <div class="flex items-center justify-between text-sm text-gray-500">
+              <span>2023年12月25日</span>
+              <span>阅读 2,341次</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Load More -->
+      <div class="text-center mt-12">
+        <button class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-50 transition-colors border border-primary-200">
+          加载更多文章
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-sm border border-gray-100 text-center">
+        <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">订阅健康资讯</h2>
+        <p class="text-gray-600 mb-8">获取最新的基层公卫政策解读、产品使用技巧、案例分享等内容</p>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input type="email" placeholder="请输入您的邮箱" class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+          <button type="submit" class="px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors">
+            订阅
+          </button>
+        </form>
+        <p class="text-sm text-gray-500 mt-4">我们尊重您的隐私，不会发送垃圾邮件</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="lg:col-span-2">
+          <img src="../images/logo.png" alt="当康健康" class="h-10 w-auto">
+          <p class="text-gray-400 mb-6 max-w-sm">当康健康专注基层健康物联网，以智能硬件+云端平台为核心，为医疗机构提供一站式数字化健康管理解决方案。</p>
+          <div class="space-y-2 text-gray-400">
+            <p>服务热线：400-0663-800</p>
+            <p>联系电话：176888164877</p>
+            <p>官网：www.dihealth.com.cn</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">产品服务</h4>
+          <ul class="space-y-3">
+            <li><a href="../products/" class="text-gray-400 hover:text-white transition-colors">智能健康一体机</a></li>
+            <li><a href="../products/" class="text-gray-400 hover:text-white transition-colors">区域心电诊断平台</a></li>
+            <li><a href="../products/" class="text-gray-400 hover:text-white transition-colors">慢病管理云平台</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">关于我们</h4>
+          <ul class="space-y-3">
+            <li><a href="../about/" class="text-gray-400 hover:text-white transition-colors">公司简介</a></li>
+            <li><a href="../contact/" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm">© 2024 深圳小水滴健康科技有限公司 版权所有</p>
+        <p class="text-gray-500 text-sm mt-2 md:mt-0">品牌：当康健康 | 粤ICP备XXXXXXXX号</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

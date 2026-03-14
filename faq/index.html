@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常见问题 - 健康一体机FAQ | 当康健康</title>
+  <meta name="description" content="当康健康一体机常见问题解答，涵盖产品使用、售后服务、技术支持等，帮助您快速了解健康一体机、健康随访包等产品。">
+  <meta name="keywords" content="健康一体机FAQ,体检设备常见问题,健康小屋问答,健康随访包问题,基层医疗设备咨询">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            health: {
+              green: '#10b981',
+              teal: '#14b8a6',
+              blue: '#3b82f6',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-bg { background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%); }
+    .faq-item.active .faq-answer { max-height: 500px; }
+    .faq-item .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+    .faq-icon { transition: transform 0.3s ease; }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-900">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center">
+            <img src="../images/logo.png" alt="当康健康" class="h-10 w-auto">
+            <div class="ml-3 border-l-2 border-gray-200 pl-3">
+              <div class="text-sm font-bold text-gray-800">基层健康物联网</div>
+              <div class="text-xs text-gray-500">基层公卫 | 企业健康 | 健康康养</div>
+            </div>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="../index.html" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">首页</a>
+          <a href="../products/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">产品中心</a>
+          <a href="../solutions/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">解决方案</a>
+          <a href="../about/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">关于我们</a>
+          <a href="../contact/" class="text-gray-600 hover:text-primary-600 font-medium transition-colors">联系我们</a>
+          <a href="../contact/" class="bg-primary-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-primary-700 transition-colors">立即咨询</a>
+        </div>
+        <div class="flex items-center md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden py-4 border-t">
+        <div class="space-y-2">
+          <a href="../index.html" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">首页</a>
+          <a href="../products/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">产品中心</a>
+          <a href="../solutions/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">解决方案</a>
+          <a href="../about/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">关于我们</a>
+          <a href="../contact/" class="block px-4 py-2 text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-lg">联系我们</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg text-white py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">常见问题</h1>
+      <p class="text-xl text-blue-100 max-w-3xl mx-auto">关于健康一体机、健康随访包等产品的常见问题解答</p>
+    </div>
+  </section>
+
+  <!-- FAQ Categories -->
+  <section class="py-8 bg-gray-50 border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#product" class="px-6 py-2 bg-primary-600 text-white rounded-full font-medium text-sm">产品使用</a>
+        <a href="#service" class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium text-sm hover:bg-gray-100 border">售后服务</a>
+        <a href="#tech" class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium text-sm hover:bg-gray-100 border">技术支持</a>
+        <a href="#purchase" class="px-6 py-2 bg-white text-gray-700 rounded-full font-medium text-sm hover:bg-gray-100 border">采购咨询</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 产品使用类问题 -->
+      <div id="product" class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </span>
+          产品使用
+        </h2>
+        
+        <div class="space-y-4">
+          <!-- Q1 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">1. 健康一体机可以检测哪些项目？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">当康健康一体机可检测15+项健康指标，包括：血压、血糖、心电、血氧、体温、身高、体重、BMI、腰围、体脂、尿液分析（11项）等。不同型号配置略有差异，T320旗舰款支持最全面的检测项目。</p>
+            </div>
+          </div>
+          
+          <!-- Q2 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">2. 健康一体机操作复杂吗？需要专业培训吗？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">健康一体机采用智能化设计，界面简洁直观，支持触屏操作和语音引导，普通居民可自助完成检测。设备开机后有详细的操作指引，首次使用时可由工作人员简单指导。我们也提供免费的现场培训服务。</p>
+            </div>
+          </div>
+          
+          <!-- Q3 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">3. 健康随访包适合哪些场景使用？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">健康随访包（M系列、QC100）专为公卫上门随访设计，适用于：家庭医生签约服务、慢病患者上门随访、老年人健康管理、孕产妇/儿童健康管理、企业员工健康巡检等移动健康服务场景。</p>
+            </div>
+          </div>
+          
+          <!-- Q4 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">4. 检测数据如何保存和管理？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">检测数据自动上传至云端健康管理平台，支持：① 自动建档，数据关联居民电子健康档案；② 历史数据查询与趋势分析；③ 异常指标预警提醒；④ 与公卫系统、HIS系统对接，实现数据互联互通。</p>
+            </div>
+          </div>
+          
+          <!-- Q5 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">5. 健康一体机的检测精度如何？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">当康健康一体机内置的检测模块均通过国家医疗器械认证，检测精度符合临床使用标准。血压测量误差≤±3mmHg，血糖测量误差≤±15%，心电采样率≥500Hz，各项指标与专业医疗设备对比精度达95%以上。</p>
+            </div>
+          </div>
+          
+          <!-- Q6 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">6. 健康小屋需要多大的场地？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">健康小屋的标准配置建议场地面积为15-30平方米，可根据实际检测项目和设备数量灵活调整。最小配置（单台健康一体机）仅需6-8平方米即可部署。我们提供免费的场地规划咨询服务。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 售后服务类问题 -->
+      <div id="service" class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </span>
+          售后服务
+        </h2>
+        
+        <div class="space-y-4">
+          <!-- Q7 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">7. 产品质保期多长？质保范围包括哪些？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">当康健康一体机整机质保1年，核心部件（主板、显示屏）质保2年。质保期内，非人为损坏的故障免费维修或更换。耗材（如血糖试纸、尿液试纸）不在质保范围内。</p>
+            </div>
+          </div>
+          
+          <!-- Q8 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">8. 设备出现故障如何报修？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">您可以通过以下方式报修：① 拨打服务热线400-0663-800；② 联系专属客户经理；③ 通过健康管理平台在线提交工单。我们承诺7×24小时响应，一般问题2小时内响应，24小时内给出解决方案。</p>
+            </div>
+          </div>
+          
+          <!-- Q9 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">9. 是否提供上门维修服务？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">是的，我们在全国设有服务网点，提供上门维修服务。省会城市48小时内上门，地级市72小时内上门，县域地区可根据实际情况协调。紧急情况可安排加急服务。</p>
+            </div>
+          </div>
+          
+          <!-- Q10 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">10. 耗材如何购买？支持哪些血糖试纸？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">耗材可通过客户经理订购或拨打服务热线订购，我们提供原厂配套耗材。血糖模块支持主流品牌试纸（如罗氏、强生、雅培等），具体型号请咨询客户经理。建议使用原厂配套耗材以确保检测精度。</p>
+            </div>
+          </div>
+          
+          <!-- Q11 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">11. 设备需要定期校准吗？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">建议每年进行一次设备校准检测，确保检测精度。校准服务包含在年度维保服务中，也可单独购买。血压模块建议每6个月校准一次，心电模块每年校准一次。</p>
+            </div>
+          </div>
+          
+          <!-- Q12 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">12. 是否提供操作培训？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">提供免费培训服务，包括：设备安装时的现场培训、线上视频培训课程、定期复训等。培训内容涵盖设备操作、日常维护、故障排查、数据管理等。培训人数不限，可多次安排。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 技术支持类问题 -->
+      <div id="tech" class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </span>
+          技术支持
+        </h2>
+        
+        <div class="space-y-4">
+          <!-- Q13 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">13. 健康一体机需要联网吗？支持哪些网络方式？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">健康一体机支持有线网络、WiFi、4G全网通三种联网方式。如需实时数据上传和远程诊断功能，建议保持联网状态。设备也支持离线检测模式，检测数据暂存本地，联网后自动同步。</p>
+            </div>
+          </div>
+          
+          <!-- Q14 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">14. 系统可以对接现有的公卫系统吗？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">支持对接主流公卫系统、HIS系统、区域卫生信息平台等。我们提供标准API接口和定制化对接服务，已成功对接全国多个省市平台。对接周期通常为2-4周，具体请咨询技术团队。</p>
+            </div>
+          </div>
+          
+          <!-- Q15 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">15. 数据安全如何保障？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">数据安全是我们的核心关注点：① 数据传输采用SSL/TLS加密；② 云端存储通过等保三级认证；③ 支持私有化部署；④ 严格的权限管理和访问控制；⑤ 定期数据备份，支持数据恢复。符合《个人信息保护法》和《数据安全法》要求。</p>
+            </div>
+          </div>
+          
+          <!-- Q16 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">16. 支持居民自助打印检测报告吗？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">支持。健康一体机可连接打印机，检测完成后自动生成报告并打印。报告格式可定制，包含检测数据、健康建议、趋势图表等。居民也可通过微信扫码查看电子报告。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 采购咨询类问题 -->
+      <div id="purchase" class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="w-10 h-10 bg-violet-100 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </span>
+          采购咨询
+        </h2>
+        
+        <div class="space-y-4">
+          <!-- Q17 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">17. 如何获取产品报价？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">请联系我们的客户经理获取详细报价方案。您可以通过以下方式：① 拨打服务热线400-0663-800；② 在官网提交咨询表单；③ 发送需求至官方邮箱。我们会在24小时内与您联系，根据您的需求提供定制化方案和报价。</p>
+            </div>
+          </div>
+          
+          <!-- Q18 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">18. 支持政府采购招投标吗？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">支持。当康健康具备完善的招投标资质，包括：医疗器械经营许可证、高新技术企业证书、ISO9001认证、多项软件著作权等。我们提供招标参数编写、技术方案支持、现场演示等全流程服务。</p>
+            </div>
+          </div>
+          
+          <!-- Q19 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">19. 可以安排产品演示吗？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">可以。我们提供多种演示方式：① 线上视频演示（即时可安排）；② 线下上门演示（预约后1-3天内）；③ 邀约参观样板点或公司展厅。您可根据需要选择合适的演示方式。</p>
+            </div>
+          </div>
+          
+          <!-- Q20 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">20. 设备安装调试需要多长时间？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">单台健康一体机安装调试约1-2小时；健康小屋整体部署约1-3天（含场地布置、设备安装、系统调试、人员培训）。我们提供全程技术支持，确保设备正常运行后再交付。</p>
+            </div>
+          </div>
+          
+          <!-- Q21 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">21. 是否支持分期付款？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">支持多种付款方式，包括：全款、分期付款、融资租赁等。具体方案请与客户经理协商确定。政府项目支持合同约定的付款方式。</p>
+            </div>
+          </div>
+          
+          <!-- Q22 -->
+          <div class="faq-item bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <span class="font-semibold text-gray-900">22. 如何成为当康健康的合作伙伴？</span>
+              <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer px-6 pb-5">
+              <p class="text-gray-600">欢迎各地经销商、系统集成商与我们合作。合作流程：① 提交合作申请；② 资质审核；③ 商务洽谈；④ 签订合作协议；⑤ 培训认证。我们提供产品培训、技术支持、市场推广等全方位支持。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">没有找到您的问题？</h2>
+      <p class="text-gray-600 mb-8">我们的专业顾问随时为您解答</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="../contact/" class="inline-flex items-center justify-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors">
+          在线咨询
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <a href="tel:400-0663-800" class="inline-flex items-center justify-center px-8 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors border border-primary-200">
+          <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          400-0663-800
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="lg:col-span-2">
+          <img src="../images/logo.png" alt="当康健康" class="h-10 w-auto">
+          <p class="text-gray-400 mb-6 max-w-sm">当康健康专注基层健康物联网，以智能硬件+云端平台为核心，为医疗机构提供一站式数字化健康管理解决方案。</p>
+          <div class="space-y-2 text-gray-400">
+            <p>服务热线：400-0663-800</p>
+            <p>联系电话：176888164877</p>
+            <p>官网：www.dihealth.com.cn</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">产品服务</h4>
+          <ul class="space-y-3">
+            <li><a href="../products/" class="text-gray-400 hover:text-white transition-colors">智能健康一体机</a></li>
+            <li><a href="../products/" class="text-gray-400 hover:text-white transition-colors">区域心电诊断平台</a></li>
+            <li><a href="../products/" class="text-gray-400 hover:text-white transition-colors">慢病管理云平台</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">关于我们</h4>
+          <ul class="space-y-3">
+            <li><a href="../about/" class="text-gray-400 hover:text-white transition-colors">公司简介</a></li>
+            <li><a href="../contact/" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm">© 2024 深圳小水滴健康科技有限公司 版权所有</p>
+        <p class="text-gray-500 text-sm mt-2 md:mt-0">品牌：当康健康 | 粤ICP备XXXXXXXX号</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+    
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        
+        // Toggle current item
+        if (!isActive) {
+          faqItem.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
